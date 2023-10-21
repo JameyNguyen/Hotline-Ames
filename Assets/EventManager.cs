@@ -18,11 +18,14 @@ public class NewBehaviourScript : MonoBehaviour
 
             for (int i = 0; i < availableCards.Length; i++)
             {
-                 randCard.gameObject.SetActive(true);
-                 randCard.transform.position = cardSlots[i].position;
-                 availableCards[i] = false;
-                 deck.Remove(randCard);
-                 return;
+                if (availableCards[i] == true)
+                {
+                    randCard.gameObject.SetActive(true);
+                    randCard.transform.position = cardSlots[i].position;
+                    availableCards[i] = false;
+                    deck.Remove(randCard);
+                    return;
+                }
             }
         }
     }
