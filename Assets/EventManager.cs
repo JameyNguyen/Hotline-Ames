@@ -25,7 +25,7 @@ public class EventManager : MonoBehaviour
                     randCard.gameObject.SetActive(true);
                     randCard.transform.position = cardSlots[i].position;
                     randCard.index = i;
-                    community[randCard.index] = randCard;
+                    //community[randCard.index] = randCard;
                     availableCards[i] = false;
                     deck.Remove(randCard);
 
@@ -43,8 +43,13 @@ public class EventManager : MonoBehaviour
             {
                 selectedCards[i].transform.position = discardSlot.position;
                 availableCards[selectedCards[i].index] = true;
-                community[selectedCards[i].index] = null;
+                selectedCards[i].index = -1;
+                //community[selectedCards[i].index] = null;
             }
+        }
+        while (selectedCards.Count > 0)
+        {
+            selectedCards.RemoveAt(0);
         }
         drawCard();
     }
@@ -61,9 +66,13 @@ public class EventManager : MonoBehaviour
     }
 
     public void selectCard(Card card)
-    { 
-        
+    {         
         selectedCards.Add(card);
+    }
+
+    public void removeCard(Card card)
+    {
+        selectedCards.Remove(card);
     }
 
 
