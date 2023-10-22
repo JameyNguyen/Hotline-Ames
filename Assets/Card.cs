@@ -5,8 +5,8 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
 
-    public sealed char suit;
-    public sealed int value;
+    public char suit;
+    public int value;
     public int index;
 
     private EventManager manager;
