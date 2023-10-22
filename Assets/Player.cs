@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     {
         // maybe either here or some other object calls this function based on card conditionls
         health -= damage;
+        if (health <= 0)
+        {
+            // gg lol
+        }
         
     }
 

@@ -14,7 +14,6 @@ public class NewBehaviourScript : MonoBehaviour
     { 
         if (deck.Count >= 1)
         {
-
             for (int i = 0; i < availableCards.Length; i++)
             {
                 if (availableCards[i] == true)
@@ -32,6 +31,14 @@ public class NewBehaviourScript : MonoBehaviour
         return;
     }
 
+    public void discardCard()
+    { 
+        if (selectedCards.Count > 0)
+        {
+
+        }
+    }
+
     public void shuffle()
     {
         for (int i = 0; i <= 50; i++)
@@ -47,6 +54,7 @@ public class NewBehaviourScript : MonoBehaviour
     { 
         selectedCards.Add(card);
     }
+
 
 
 }
