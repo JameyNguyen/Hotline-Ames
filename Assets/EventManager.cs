@@ -25,12 +25,13 @@ public class NewBehaviourScript : MonoBehaviour
                     randCard.transform.position = cardSlots[i].position;
                     availableCards[i] = false;
                     deck.Remove(randCard);
-                    
+
                 }
             }
         }
         return;
     }
+
 
     public void shuffle()
     {

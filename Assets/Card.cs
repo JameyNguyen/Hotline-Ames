@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+
+    char suit;
+    char value;
+
     // Start is called before the first frame update
     void Start()
     {
