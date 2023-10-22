@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
         }
         
     }
-
     public void useActionPoints(int point)
     {
         if (actionPoint - point < 0)
@@ -34,4 +33,5 @@ public class Player : MonoBehaviour
         }
         actionPoint -= point;
     }
+
 }
