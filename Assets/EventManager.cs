@@ -25,13 +25,14 @@ public class EventManager : MonoBehaviour
                     randCard.gameObject.SetActive(true);
                     randCard.transform.position = cardSlots[i].position;
                     randCard.index = i;
-                    //community[randCard.index] = randCard;
+                    community[randCard.index] = randCard;
                     availableCards[i] = false;
                     deck.Remove(randCard);
 
                 }
             }
         }
+
         return;
     }
 
@@ -44,7 +45,7 @@ public class EventManager : MonoBehaviour
                 selectedCards[i].transform.position = discardSlot.position;
                 availableCards[selectedCards[i].index] = true;
                 selectedCards[i].index = -1;
-                //community[selectedCards[i].index] = null;
+                community[selectedCards[i].index] = null;
             }
         }
         while (selectedCards.Count > 0)
