@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum GameState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 public class EventManager : MonoBehaviour
 {
     public List<Card> deck = new List<Card>();
@@ -13,6 +14,9 @@ public class EventManager : MonoBehaviour
     public Card[] community = new Card[5];
 
     Unit enemy;
+    Player player;
+
+    GameState state;
  
     public void drawCard()
     { 
@@ -78,6 +82,16 @@ public class EventManager : MonoBehaviour
         selectedCards.Remove(card);
     }
 
+    public GameState getState()
+    {
+        return state;
+    }
+
+    public void changeState(GameState state)
+    {
+        this.state = state;
+    }
+
     public void attackCard()
     {
         int highestVal = 0;
@@ -88,11 +102,19 @@ public class EventManager : MonoBehaviour
                 highestVal = card.value;
             }
         }
+        if (player.isBuffed())
+        {
+            highestVal *= 2;
+            player.removeBuff();
+        }
         enemy.takeDamage(highestVal);
+        player.gainActionPoint();
+        state = GameState.ENEMYTURN;
     }
 
     private void Start()
     {
         enemy = FindObjectOfType<Unit>();
+        player = FindObjectOfType<Player>();
     }
 }
