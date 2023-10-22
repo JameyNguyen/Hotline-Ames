@@ -7,12 +7,14 @@ public class Card : MonoBehaviour
 
     char suit;
     char value;
+    public int index;
 
-    //private EventManager manager;
+    private EventManager manager;
 
     private void OnMouseDown()
     {
-        
+        manager.selectCard(this);
+        manager.availableCards[index] = true;
     }
 
 
@@ -20,7 +22,7 @@ public class Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //manager = FindObjectOfType<GameManager>();
+        manager = FindObjectOfType<EventManager>();
     }
 
     // Update is called once per frame

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NewBehaviourScript : MonoBehaviour
+public class EventManager : MonoBehaviour
 {
     public List<Card> deck = new List<Card>();
     public Transform[] cardSlots;
@@ -23,6 +23,7 @@ public class NewBehaviourScript : MonoBehaviour
                     Card randCard = deck[Random.Range(0, deck.Count)];
                     randCard.gameObject.SetActive(true);
                     randCard.transform.position = cardSlots[i].position;
+                    randCard.index = i;
                     availableCards[i] = false;
                     deck.Remove(randCard);
 
@@ -39,8 +40,10 @@ public class NewBehaviourScript : MonoBehaviour
             for (int i = 0; i < selectedCards.Count; i++)
             {
                 selectedCards[i].transform.position = discardSlot.position;
+                availableCards[selectedCards[i].index] = true;
             }
         }
+        drawCard();
     }
 
     public void shuffle()
@@ -54,9 +57,8 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    public void selectCard()
+    public void selectCard(Card card)
     { 
-        if (On)
         
         selectedCards.Add(card);
     }
