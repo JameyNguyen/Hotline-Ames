@@ -320,7 +320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 0}
+  m_AnchoredPosition: {x: 800, y: -80}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51882200
@@ -1396,7 +1396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 0}
+  m_AnchoredPosition: {x: -800, y: -80}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440788158
@@ -2005,7 +2005,7 @@ GameObject:
   - component: {fileID: 614987572}
   - component: {fileID: 614987571}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: DiscardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2063,7 +2063,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Discard
 --- !u!222 &614987572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5388,7 +5388,7 @@ GameObject:
   - component: {fileID: 1782717623}
   - component: {fileID: 1782717622}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: DrawText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5446,7 +5446,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'Draw
+
+'
 --- !u!222 &1782717623
 CanvasRenderer:
   m_ObjectHideFlags: 0
