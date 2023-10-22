@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     }
     public void useActionPoints(int point)
     {
-        if (actionPoint - point < 0)
+        if (actionPoint - point < 0 || buffed)
         {
             // not enough points to do action
             return;
@@ -39,6 +39,10 @@ public class Player : MonoBehaviour
         buffed = true;
     }
 
+    public int getActionPoints()
+    {
+        return actionPoint;
+    }
     public bool isBuffed()
     {
         return buffed;

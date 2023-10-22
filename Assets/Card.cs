@@ -17,6 +17,7 @@ public class Card : MonoBehaviour
         {
             selected = true;
             manager.selectCard(this);
+            //this.transform.position += Vector3.up;
         }
 
         else

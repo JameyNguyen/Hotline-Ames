@@ -12,6 +12,12 @@ public class EventManager : MonoBehaviour
     public List<Card> selectedCards = new List<Card>();
     public Transform discardSlot;
     public Card[] community = new Card[5];
+    public GameObject drawTutorial;
+    public GameObject selectTutorial;
+    public GameObject discardTutorial;
+    public GameObject attackTutorial;
+    public GameObject actionPointTutorial;
+    public GameObject endingTutorial;
 
     Unit enemy;
     Player player;
@@ -38,12 +44,25 @@ public class EventManager : MonoBehaviour
                 }
             }
         }
-
+        if (drawTutorial.active)
+        {
+            drawTutorial.SetActive(false);
+            selectTutorial.SetActive(true);
+            discardTutorial.SetActive(true);
+        }
         return;
     }
 
     public void discardCard()
     {
+        if (selectTutorial.active)
+        {
+            selectTutorial.SetActive(false);
+            discardTutorial.SetActive(false);
+            attackTutorial.SetActive(true);
+            actionPointTutorial.SetActive(true);
+        }
+        
         if (selectedCards.Count > 0)
         {
             for (int i = 0; i < selectedCards.Count; i++)
@@ -94,6 +113,12 @@ public class EventManager : MonoBehaviour
 
     public void attackCard()
     {
+        if (attackTutorial.active)
+        {
+            attackTutorial.SetActive(false);
+            actionPointTutorial.SetActive(false);
+        }
+
         int highestVal = 0;
         foreach (Card card in community)
         {
