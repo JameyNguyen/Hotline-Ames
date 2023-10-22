@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public enum GameState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 public class EventManager : MonoBehaviour
@@ -35,7 +36,7 @@ public class EventManager : MonoBehaviour
                 if (availableCards[i] == true)
                 {
 
-                    Card randCard = deck[Random.Range(0, deck.Count)];
+                    Card randCard = deck[UnityEngine.Random.Range(0, deck.Count)];
                     randCard.gameObject.SetActive(true);
                     randCard.transform.position = cardSlots[i].position;
                     randCard.index = i;
@@ -46,7 +47,7 @@ public class EventManager : MonoBehaviour
                 }
             }
         }
-        handtext.text(checkHand(community));
+        handtext.text = checkHand(community);
         if (drawTutorial.active)
         {
             drawTutorial.SetActive(false);
