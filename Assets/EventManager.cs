@@ -9,6 +9,7 @@ public class NewBehaviourScript : MonoBehaviour
     public Transform[] cardSlots;
     public bool[] availableCards;
     public List<Card> selectedCards = new List<Card>();
+    public Transform discardSlot;
  
     public void drawCard()
     { 
@@ -31,6 +32,16 @@ public class NewBehaviourScript : MonoBehaviour
         return;
     }
 
+    public void discardCard()
+    {
+        if (selectedCards.Count > 0)
+        {
+            for (int i = 0; i < selectedCards.Count; i++)
+            {
+                selectedCards[i].transform.position = discardSlot.position;
+            }
+        }
+    }
 
     public void shuffle()
     {
@@ -43,8 +54,10 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    public void selectCard(Card card)
+    public void selectCard()
     { 
+        if (On)
+        
         selectedCards.Add(card);
     }
 

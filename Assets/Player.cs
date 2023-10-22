@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     int health = 150;
     int currency = 0;
     int actionPoint = 5;
+    
 
     public void gainCurrency(int gold) 
     {
