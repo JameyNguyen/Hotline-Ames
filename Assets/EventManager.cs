@@ -76,6 +76,4 @@ public class EventManager : MonoBehaviour
         selectedCards.Remove(card);
     }
 
-
-
 }
