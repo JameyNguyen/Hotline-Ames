@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     int health = 150;
     int currency = 0;
-    int actionPoint = 0;
-    bool buffed = false;
-    public Text text;
-    public Text actionPointText;
-    EventManager manager;
+    int actionPoint = 5;
+    
 
     public void gainCurrency(int gold) 
     {
@@ -36,26 +32,6 @@ public class Player : MonoBehaviour
             return;
         }
         actionPoint -= point;
-        buffed = true;
     }
 
-    public bool isBuffed()
-    {
-        return buffed;
-    }
-
-    public void removeBuff()
-    {
-        buffed = false;
-    }
-    public void gainActionPoint()
-    {
-        actionPoint += 1;
-    }
-
-    private void Update()
-    {
-        text.text = health.ToString();
-        actionPointText.text = actionPoint.ToString();
-    }
 }

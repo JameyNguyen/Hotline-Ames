@@ -21,6 +21,7 @@ public class Card : MonoBehaviour
 
         else
         {
+
             selected = false;
             manager.removeCard(this);
         }
