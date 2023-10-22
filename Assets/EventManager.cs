@@ -11,6 +11,8 @@ public class EventManager : MonoBehaviour
     public List<Card> selectedCards = new List<Card>();
     public Transform discardSlot;
     public Card[] community = new Card[5];
+
+    Unit enemy;
  
     public void drawCard()
     { 
@@ -44,8 +46,8 @@ public class EventManager : MonoBehaviour
             {
                 selectedCards[i].transform.position = discardSlot.position;
                 availableCards[selectedCards[i].index] = true;
-                selectedCards[i].index = -1;
                 community[selectedCards[i].index] = null;
+                selectedCards[i].index = -1;
             }
         }
         while (selectedCards.Count > 0)
@@ -76,4 +78,21 @@ public class EventManager : MonoBehaviour
         selectedCards.Remove(card);
     }
 
+    public void attackCard()
+    {
+        int highestVal = 0;
+        foreach (Card card in community)
+        {
+            if (card.value >= highestVal)
+            {
+                highestVal = card.value;
+            }
+        }
+        enemy.takeDamage(highestVal);
+    }
+
+    private void Start()
+    {
+        enemy = FindObjectOfType<Unit>();
+    }
 }

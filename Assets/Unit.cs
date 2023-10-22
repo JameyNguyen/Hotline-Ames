@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
-    public int health = 150;
+    int health = 150;
     public Text text;
 
     public void takeDamage(int damage)
@@ -26,6 +26,6 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        text.text = health.ToString();
+        text.text = getHealth().ToString();
     }
 }
