@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 public class EventManager : MonoBehaviour
 {
     public List<Card> deck = new List<Card>();
@@ -13,7 +11,6 @@ public class EventManager : MonoBehaviour
     public List<Card> selectedCards = new List<Card>();
     public Transform discardSlot;
     public Card[] community = new Card[5];
-    public BattleState state;
  
     public void drawCard()
     { 
@@ -72,7 +69,6 @@ public class EventManager : MonoBehaviour
     {         
         selectedCards.Add(card);
     }
-<<<<<<< Updated upstream
 
     public void removeCard(Card card)
     {
@@ -81,16 +77,4 @@ public class EventManager : MonoBehaviour
 
 
 
-=======
-    
-    public void attackCard()
-    {
-        // check both player cards and community cards..
-        // or check both enemy cards and community cards?
-        if (state == BattleState.PLAYERTURN || state == BattleState.START)
-        { 
-            
-        }
-    }
->>>>>>> Stashed changes
 }
