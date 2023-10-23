@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    int health = 150;
+    double health = 150;
     int currency = 0;
     int actionPoint = 0;
     bool buffed = false;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
         currency += gold;
     }
 
-    public void takeDamage(int damage)
+    public void takeDamage(double damage)
     {
         // maybe either here or some other object calls this function based on card conditionls
         health -= damage;

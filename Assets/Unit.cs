@@ -5,32 +5,32 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
-    int maxHealth = 150;
-    int health = 150;
+    double maxHealth = 150;
+    double health = 150;
     public Text text;
     public Text lastActionText;
     Player player;
     EventManager manager;
 
-    public void takeDamage(int damage)
+    public void takeDamage(double damage)
     {
         // maybe either here or some other object calls this function based on card conditionls
         health -= damage;
         if (health <= 0)
         {
-            // gg lol
+            manager.winScreen.SetActive(true);
         }
 
     }
 
-    public int getHealth()
+    public double getHealth()
     {
         return health;
     }
 
     public void attackPlayer()
     {
-        int highestVal = 0;
+        double highestVal = 0;
         foreach (Card card in manager.community)
         {
             if (card.value >= highestVal)
@@ -44,7 +44,7 @@ public class Unit : MonoBehaviour
 
     public void healSelf()
     {
-        int highestVal = 0;
+        double highestVal = 0;
         foreach (Card card in manager.community)
         {
             if (card.value >= highestVal)
@@ -75,12 +75,12 @@ public class Unit : MonoBehaviour
             int randomChoice = Random.Range(0, 2);
             if (randomChoice == 0)
             {
-                lastActionText.text = "Attacked";
+                lastActionText.text = "I Attacked";
                 attackPlayer();
             }
             if (randomChoice == 1)
             {
-                lastActionText.text = "Healed";
+                lastActionText.text = "I Healed";
                 healSelf();
             }
         }

@@ -20,7 +20,9 @@ public class EventManager : MonoBehaviour
     public GameObject attackTutorial;
     public GameObject actionPointTutorial;
     public GameObject endingTutorial;
+    public GameObject winScreen;
     public Text handtext;
+    public double multipler;
 
     Unit enemy;
     Player player;
@@ -108,42 +110,47 @@ public class EventManager : MonoBehaviour
     {
         if (check_straight_flush(checkHand))
         {
+            multipler = 10;
             return "straight flush";
         }
         else if (check_four_of_a_kind(checkHand))
         {
+            multipler = 5;
             return "four of a kind";
         }
         else if (check_full_house(checkHand))
         {
+            multipler = 4;
             return "full house";
         }
         else if (check_flush(checkHand))
         {
+            multipler = 3.5;
             return "Flush";
         }
         else if (check_straight(checkHand))
         {
+            multipler = 3;
             return "straight";
         }
         else if (check_three_of_a_kind(checkHand))
         {
-            return "three of a kind";
-        }
-        else if (check_three_of_a_kind(checkHand))
-        {
+            multipler = 2;
             return "three of a kind";
         }
         else if (check_two_pairs(checkHand))
         {
+            multipler = 1.5;
             return "two pairs";
         }
         else if (check_one_pairs(checkHand))
         {
+            multipler = 1.25;
             return "one pair";
         }
         else
         {
+            multipler = 1;
             return  "high card";
         }
     }
@@ -348,7 +355,7 @@ public class EventManager : MonoBehaviour
             highestVal *= 2;
             player.removeBuff();
         }
-        enemy.takeDamage(highestVal);
+        enemy.takeDamage(highestVal * multipler);
         player.gainActionPoint();
         state = GameState.ENEMYTURN;
     }
